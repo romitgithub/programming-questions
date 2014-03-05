@@ -1,0 +1,43 @@
+<?php
+
+	
+	function is_perfect($num){
+	  $isPerf=false;
+	     if(sqrt($num)-floor(sqrt($num))==0)
+	         $isPerf=true;
+	  return $isPerf;
+	}
+
+	$fr = fopen("php://stdin", "r");
+  	$fw = fopen("php://stdout", "w");
+ 
+  	fscanf($fr, "%d\n", $testcases);
+
+  	$numbers = array();
+
+  	for ($i=0; $i < $testcases; $i++) { 
+  		
+  		fscanf($fr, "%d", $num);
+
+  		array_push($numbers, $num);
+  	}
+
+  	for ($k=0; $k < $testcases; $k++) { 
+  		
+  		$number = $numbers[$k];
+  		$chk1 = (5*$number*$number) + 4;
+  		$chk2 = (5*$number*$number) - 4;
+
+  		if(is_perfect($chk1) or is_perfect($chk2)){
+
+  			echo "IsFibo\n";
+
+  		}
+  		else{
+  			echo "IsNotFibo\n";
+  		}
+
+  	}
+
+
+?>

@@ -1,0 +1,21 @@
+<?php
+
+
+	$fr = fopen("php://stdin", "r");
+  	$fw = fopen("php://stdout", "w");
+ 
+  	fscanf($fr, "%d %d\n",$jars, $testcases);
+
+  	$total = 0;
+
+  	for ($i=0; $i < $testcases; $i++) { 
+  	
+  		fscanf($fr, "%d %d %d", $a, $b, $k);
+
+  		$total += ((abs($b-$a)+1)*$k);
+  	}
+
+  	echo intval($total/$jars);
+
+
+?>

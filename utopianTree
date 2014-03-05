@@ -1,0 +1,47 @@
+<?php
+
+
+	$fr = fopen("php://stdin", "r");
+  	$fw = fopen("php://stdout", "w");
+	
+	fscanf($fr, "%d", $testcases);
+	
+	$result = array();
+
+	for($i=0;$i<$testcases;$i++){
+        
+        fscanf($fr, "%d", $numcycle);
+        
+        $h = 1;
+        
+        if($numcycle%2==0){
+            for($j=0; $j<($numcycle/2); $j++){
+
+                $h = (2*$h)+1;
+            }
+
+            array_push($result, $h);
+
+            }
+        else{
+            $index = intval($numcycle/2);
+			for($j=0; $j<($index); $j++){
+
+                $h = (2*$h)+1;
+            }
+            
+            $h = 2*$h;
+            array_push($result, $h);
+            
+        }
+    	}
+		
+
+	array_reverse($result);
+
+	for($r=0;$r<$testcases;$r++){
+        
+        echo "$result[$r]\n";
+    }
+
+?>

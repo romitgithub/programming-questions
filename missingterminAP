@@ -1,0 +1,49 @@
+<?php
+	
+	$fr = fopen("php://stdin", "r");
+  	$fw = fopen("php://stdout", "w");
+
+  	fscanf($fr, "%d", $testcases);
+	$elemarray = array();
+
+  	for ($i=0; $i < $testcases; $i++) { 
+  	
+  		fscanf($fr, "%d", $elem);
+  		
+  		array_push($elemarray, $elem);
+  	}
+  	
+  	$a=$elemarray[0];$b=$elemarray[1];$c=$elemarray[2];
+  	
+  	if((2*$b)== $a+$c){
+  		
+  		$diff = ($c-$a)/2;
+  		$found = false;
+  	}
+  	elseif((2*$b)< $a+$c){
+  		$diff = $b-$a;
+  		$found = true;
+  		$result = $b+$diff;
+  	}
+  	else{
+  		$diff = $c-$b;
+  		$found = true;
+  		$result = $a+$diff;
+  	}
+  	
+  	if(!$found){
+  		
+  		for($i=3;$i<count($elemarray);$i++){
+  			
+  			if($elemarray[$i]!=$elemarray[$i-1]){
+  				$result = $elemarray[$i-1] + $diff;
+  				break;
+  			}
+  			else{
+  				continue;
+  			}
+  		}
+  	}
+  	echo $diff;
+  	echo $result;
+?>
